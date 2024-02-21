@@ -1,0 +1,13 @@
+/*CSS DO INVESTIMENTO FIXO*/
+
+
+body{
+    background: rgba(21, 25, 41, 1);
+
+}
+
+
+.navbar-brand img {
+    max-width: 150px;
+    width: 100%; 
+}
