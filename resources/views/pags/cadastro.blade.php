@@ -1,32 +1,27 @@
 @extends('layout.app')
 @section('content')
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <!-- Formulário de cadastro -->
-            <form class="login-form" id="cadastroForm" method="POST" action="{{ route('cadastro-store') }}">
-                @csrf <!-- Adiciona o token CSRF para proteção contra CSRF -->
-                <div class="form-group">
-                    <label for="nome" style="color: white;">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="cpf" style="color: white;">CPF</label>
-                    <input type="text" class="form-control" id="cpf" name="cpf" required>
-                </div>
-                <div class="form-group">
-                    <label for="email" style="color: white;">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="senha" style="color: white;">Senha</label>
-                    <input type="password" class="form-control" id="senha" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
-            </form>
-        </div>
+    <div class="container">
+                <form action="">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <h2 class="text-center">Cadastro</h2>
+                            <label for="nome" class="form-label mt-4">Nome</label>
+                            <input type="text" class="form-control" id="nome" name="name" placeholder="Digite seu nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu cpf">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <input type="submit" class="btn btn-primary btn-block" value="Cadastrar">
+                    </div>
+                </form>
     </div>
-</div>
-
-
 @endsection
