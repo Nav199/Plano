@@ -25,6 +25,18 @@ Route::get('/Executivo',[ExecutivoController::class,'index'])->name('executivo-i
 //post de executivo
 
 //Mercado
-
-Route::get('/Marketing',[MarketingController::class,'index'])->name('marketing-index');
+Route::get('/Mercado',function(){
+    return view('plano.mercado');
+}); 
 //Marketing
+Route::get('/Marketing',[MarketingController::class,'index'])->name('marketing-index');
+
+//Operacional
+
+//Financeiro
+Route::get('/Estoque',function(){ // rota de estoque
+    return view('plano.estoque');
+}); 
+Route::get('/Fixo',function(){
+    return view('plano.inves_fixo');
+});
