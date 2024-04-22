@@ -1,27 +1,53 @@
 @extends('layout.app')
 @section('content')
-    <div class="container">
-                <form action="">
-                    <div class="form-group">
-                        <div class="mb-3">
-                            <h2 class="text-center">Cadastro</h2>
-                            <label for="nome" class="form-label mt-4">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="name" placeholder="Digite seu nome">
-                        </div>
-                        <div class="mb-3">
-                            <label for="cpf" class="form-label">CPF</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu cpf">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                        <input type="submit" class="btn btn-primary btn-block" value="Cadastrar">
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <!-- Login container -->
+    <div class="row border rounder-5 p-3 bg-white shadow box-area">
+        <!-- Left Box -->
+        <div class="col-md-6 rounder-4 d-flex justify-content-center align-items-center flex-column left-box" style="background: rgba(21, 25, 41, 1);">
+
+            <div class="featured-image mb-3s">
+                <img src="{{ asset('image/Login.png') }}" class="img-fluid" style="width: 50; height: 50;">
+            </div>
+            <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace;">Olá</p>
+            <small class="text-white text-wrap text-center" style="width: 17rem; font-family: 'Courier New', Courier, monospace;">Venha fazer seu Plano de Negócios de uma maneira fácil!</small>
+        </div>
+        <!-- Right Box -->
+        <div class="col-md-6 right-box">
+            <div class="row align-items-center">
+                <div class="header-text mb-4">
+                    <p>Hello</p>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Nome" name="name" id="name">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control form-control-lg bg-light fs-6" placeholder="CPF" name="cpf" id="cpf">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email" name="email" id="email">
+                </div>
+                <div class="input-group mb-1">
+                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="password" name="password" id="password">
+                </div>
+                <div class="input-group mb-5 d-flex justify-content-betwwen">
+                    <div class="forgot">
+                        <small>
+                            <a href="">Esqueceu a senha</a>
+                        </small>
                     </div>
-                </form>
+                </div>
+                <div class="input-group mb-3">
+                    <button class="btn btn-lg btn-primary w-100 fs-6">Cadastre-se</button>
+
+                </div>
+                <div class="row">
+                    <small>Já possui Conta? <a href="{{route ('login')}}">Login</a></small>
+                </div>
+            </div>
+
+        </div>
     </div>
+</div>
+<link href="{{ asset('css/cadastro.css') }}" rel="stylesheet">
 @endsection

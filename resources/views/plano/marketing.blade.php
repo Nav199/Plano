@@ -2,10 +2,11 @@
 @section('content')   
 <div class="container">
     <h2>Formulário de Negócios</h2>
-    <form method="POST" action="/marketing">
+    <form method="POST" action="{{route ('marketing-store')}}">
+        @csrf
         <div class="mb-3">
             <label for="produtoServico" class="form-label">Principais Produtos e Serviços</label>
-            <input type="text" class="form-control" id="produtoServico" placeholder="Digite os produtos e serviços" name="produtos">
+            <input type="text" class="form-control" id="produtoServico" placeholder="Digite os produtos e serviços" name="produto">
         </div>
         <div class="mb-3">
             <label for="preco" class="form-label">Preço</label>

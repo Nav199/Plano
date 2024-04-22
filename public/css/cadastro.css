@@ -1,6 +1,22 @@
-form{
-    width: 24%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40400%3B500&display=swap%27%29%3B');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ececec;
+    background-color: rgba(21, 25, 41, 1);
 }
-.container{ 
-    background: aquamarine;
+
+/* LOGIN CONTAINER */
+.box-area {
+    width: 600px;
+    max-width: 100%;
+}
+
+/* BOX-RIGHT */
+.right-box {
+    padding: 40px 30px 40px 40px;
+}
+
+::placeholder {
+    font-size: 16px;
 }

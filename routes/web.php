@@ -20,8 +20,14 @@ Route::get('/Executivo',function(){
 Route::get('/Cadastro',[UserController::class,'index'])->name('cadastro-index');
 Route::post('/Cadastro',[UserController::class,'store'])->name('cadastro-store');
 
+//Login
+Route::get('/Login',function(){
+    return view('pags.login');
+})->name('login');
+
 //Executivo
 Route::get('/Executivo',[ExecutivoController::class,'index'])->name('executivo-index');
+Route::post('/Executivo',[ExecutivoController::class,'store'])->name('executivo-store');
 //post de executivo
 
 //Mercado
@@ -30,6 +36,7 @@ Route::get('/Mercado',function(){
 }); 
 //Marketing
 Route::get('/Marketing',[MarketingController::class,'index'])->name('marketing-index');
+Route::post('/Marketing',[MarketingController::class,'store'])->name('marketing-store');
 
 //Operacional
 

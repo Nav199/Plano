@@ -21,11 +21,8 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
         ]);
-        var_dump($dados);
         User::create($dados);
         // Salvar o usuário no banco de dados
-    
-
         // Redirecionar o usuário para alguma página após o cadastro
         return redirect()->route('home'); 
     }

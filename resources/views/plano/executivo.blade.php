@@ -1,7 +1,8 @@
 @extends('layout.app')
 @section('content')   
 <div class="container mt-5">
-    <form method="POST" action="/executivo">
+    <form method="POST" action="{{route ('executivo-store')}}">
+        @csrf
         <h3 class="text-center mb-4 white-label">Formulário Empresarial</h3>
         <div class="row">
             <div class="col-md-6">
@@ -11,7 +12,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="cnpjCpf" class="white-label">CNPJ/CPF</label>
-                    <input type="number" class="form-control custom-input" id="cnpjCpf" name="cnpjCpf" placeholder="CNPJ/CPF">
+                    <input type="text" class="form-control custom-input" id="cnpjCpf" name="cnpjCpf" placeholder="CNPJ/CPF">
                 </div>
                 <div class="form-group mb-3">
                 <label for="setorAtividade" class="white-label">Setor de Atividade</label>
@@ -87,4 +88,44 @@
         </div>
     </form>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const formulario = document.getElementById('formulario');
+
+        formulario.addEventListener('input', function (event) {
+            const campo = event.target;
+            const mensagemErro = document.getElementById(`${campo.id}Error`);
+
+            if (campo.validity.valid) {
+                mensagemErro.textContent = ''; // Limpa a mensagem de erro se o campo for válido
+            } else {
+                exibirErro(campo, mensagemErro); // Exibe mensagem de erro se o campo for inválido
+            }
+        });
+
+        formulario.addEventListener('submit', function (event) {
+            const campos = formulario.elements;
+
+            for (const campo of campos) {
+                if (!campo.validity.valid) {
+                    const mensagemErro = document.getElementById(`${campo.id}Error`);
+                    exibirErro(campo, mensagemErro); // Exibe mensagem de erro para cada campo inválido
+                    event.preventDefault(); // Impede o envio do formulário se houver campos inválidos
+                }
+            }
+        });
+
+        function exibirErro(campo, mensagemErro) {
+            if (campo.validity.valueMissing) {
+                mensagemErro.textContent = 'Este campo é obrigatório.';
+            }
+            // Adicione outras verificações de erro conforme necessário
+
+            // Exemplo de verificação de tamanho máximo do campo
+            if (campo.validity.tooLong) {
+                mensagemErro.textContent = `O campo deve ter no máximo ${campo.maxLength} caracteres.`;
+            }
+        }
+    });
+</script>
 @endsection
