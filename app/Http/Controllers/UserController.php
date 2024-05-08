@@ -14,11 +14,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        //dd($request->all());
         // Validação dos dados do formulário
         $dados= $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:45',
             'cpf' => 'required|string|unique:users|size:11',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:45|unique:users',
             'password' => 'required|string|min:8',
         ]);
         User::create($dados);

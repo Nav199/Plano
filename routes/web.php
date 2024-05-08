@@ -1,49 +1,27 @@
 <?php
 
-use App\Http\Controllers\ExecutivoController;
-use App\Http\Controllers\MarketingController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
-Route::get('/home',function(){
-    return view('pags.home');
-})->name('home'); 
-Route::get('/Executivo',function(){
-    return view('executivo');
-})->name('executivo');
 
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-//Usuário
-Route::get('/Cadastro',[UserController::class,'index'])->name('cadastro-index');
-Route::post('/Cadastro',[UserController::class,'store'])->name('cadastro-store');
-
-//Login
-Route::get('/Login',function(){
-    return view('pags.login');
-})->name('login');
-
-//Executivo
-Route::get('/Executivo',[ExecutivoController::class,'index'])->name('executivo-index');
-Route::post('/Executivo',[ExecutivoController::class,'store'])->name('executivo-store');
-//post de executivo
-
-//Mercado
-Route::get('/Mercado',function(){
-    return view('plano.mercado');
-}); 
-//Marketing
-Route::get('/Marketing',[MarketingController::class,'index'])->name('marketing-index');
-Route::post('/Marketing',[MarketingController::class,'store'])->name('marketing-store');
-
-//Operacional
-
-//Financeiro
-Route::get('/Estoque',function(){ // rota de estoque
-    return view('plano.estoque');
-}); 
-Route::get('/Fixo',function(){
-    return view('plano.inves_fixo');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__.'/auth.php';

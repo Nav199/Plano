@@ -9,6 +9,11 @@ class MercadoController extends Controller
     //
     public function index()
     {
+        return view('plano.mercado');
+    }
+
+    public function store(Request $request)
+    {
         
     }
 }

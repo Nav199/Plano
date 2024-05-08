@@ -47,7 +47,7 @@ class ExecutivoController extends Controller
         // Criar o Executivo apenas se todos os campos estiverem preenchidos
         Executivo::create($dadosValidados);
         
-        return redirect()->route('marketing-index');
+        return redirect()->route('mercado.index');
     }
 }
 

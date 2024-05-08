@@ -18,6 +18,8 @@
                 <div class="header-text mb-4">
                     <p>Hello</p>
                 </div>
+                <form action="{{route('cadastro-store')}}" method="post">
+                    @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Nome" name="name" id="name">
                 </div>
@@ -38,9 +40,9 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <button class="btn btn-lg btn-primary w-100 fs-6">Cadastre-se</button>
-
+                    <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Cadastre-se</button>
                 </div>
+            </form>
                 <div class="row">
                     <small>Já possui Conta? <a href="{{route ('login')}}">Login</a></small>
                 </div>

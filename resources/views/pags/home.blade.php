@@ -1,6 +1,5 @@
 @extends('layout.app')
 @section('content')
-    <h1>Home baby</h1>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Plano de Negócios - Fácil</a>
@@ -10,7 +9,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Perfil</a>
+                <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-person-circle pt-2"></i>Perfil</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Configurações</a>
@@ -27,7 +26,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true" href="">Criar Plano</a>
+                <a class="nav-link active" aria-disabled="true" href="{{route('executivo-index')}}">Criar Plano</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -37,4 +36,13 @@
           </div>
         </div>
       </nav>
-@endsection
+
+      <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Plano de Negócio: Honda</h5>
+          <p class="card-text">Exemplo</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      @endsection
